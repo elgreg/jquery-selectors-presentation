@@ -1,0 +1,1 @@
+// Dummy ajax file that returns a 200
