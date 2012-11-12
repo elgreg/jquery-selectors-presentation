@@ -5,7 +5,7 @@
 	// $("li").addClass("selected");
 	// alert($("*").length);
 	// alert($('li').length);
-	// $(".tv").addClass("selected");
+	$(".tv").addClass("selected");
 	// $(".cartoons").addClass("selected");
 	// $("#item-2").addClass("selected");
 
