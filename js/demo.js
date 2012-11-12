@@ -64,70 +64,70 @@
 	// $.get('ajax/tyrion.html', function(data){
 	// 	$("ul:first li").first().before(data);
 	// });
-	var getTyrionAjaxRequest = $.get('ajax/tyrion.html');
-	getTyrionAjaxRequest.done(function(data){
-		$("ul:first li").first().before(data);
-	});
+	// var getTyrionAjaxRequest = $.get('ajax/tyrion.html');
+	// getTyrionAjaxRequest.done(function(data){
+	// 	$("ul:first li").first().before(data);
+	// });
 
 
-	// $.post
-	$('#item-1').on('click', function(){
-		var item = $(this);
+	// // $.post
+	// $('#item-1').on('click', function(){
+	// 	var item = $(this);
 
-		// IMPORTANT PART
-		$.post('ajax/ajax.js', {"someData": "I'm sending"}, function(){
-			item.addClass('selected');
-		});
-
-
-	});
-
-	// $.getScript
-	$('#item-2').on('click', function(){
+	// 	// IMPORTANT PART
+	// 	$.post('ajax/ajax.js', {"someData": "I'm sending"}, function(){
+	// 		item.addClass('selected');
+	// 	});
 
 
-		$.getScript('ajax/a_script.js');
+	// });
+
+	// // $.getScript
+	// $('#item-2').on('click', function(){
 
 
-	});
-
-	// $.getJSON
-
-	$('#item-3').on('click', function(){
-		$(this).toggleClass('selected unselected');
-		var jqueryAtomJSONPUrl="http://query.yahooapis.com/v1/public/yql?q=select%20title%20from%20atom%20where%20url%3D%22https%3A%2F%2Fgithub.com%2Fjquery%2Fjquery%2Fcommits%2Fmaster.atom%22&format=json&diagnostics=true"
-
-		$.getJSON(jqueryAtomJSONPUrl, function(data){
-			console.log(data);
-			$.each(data.query.results.entry, function(){
-				$('body').append('<p>' + this.title + '</p>');
-			});
-		});
-
-	});
-
-	// Failed get
-	$('#item-4').on('click', function(){
-
-		var failedAjaxRequest = $.get('ajax/non_existente_file');
-
-		failedAjaxRequest.error(function(jqXhr, error, msg){
-			console.log("Request failed");
-		});
+	// 	$.getScript('ajax/a_script.js');
 
 
-		// There's always more than one way to do it - fail and error are the same
-		failedAjaxRequest.fail(function(jqXhr, error, msg){
-			console.log('Also caught with .fail, not just .error');
-		});
+	// });
+
+	// // $.getJSON
+
+	// $('#item-3').on('click', function(){
+	// 	$(this).toggleClass('selected unselected');
+	// 	var jqueryAtomJSONPUrl="http://query.yahooapis.com/v1/public/yql?q=select%20title%20from%20atom%20where%20url%3D%22https%3A%2F%2Fgithub.com%2Fjquery%2Fjquery%2Fcommits%2Fmaster.atom%22&format=json&diagnostics=true"
+
+	// 	$.getJSON(jqueryAtomJSONPUrl, function(data){
+	// 		console.log(data);
+	// 		$.each(data.query.results.entry, function(){
+	// 			$('body').append('<p>' + this.title + '</p>');
+	// 		});
+	// 	});
+
+	// });
+
+	// // Failed get
+	// $('#item-4').on('click', function(){
+
+	// 	var failedAjaxRequest = $.get('ajax/non_existente_file');
+
+	// 	failedAjaxRequest.error(function(jqXhr, error, msg){
+	// 		console.log("Request failed");
+	// 	});
 
 
-		// If you want to do something no matter if there's a success or failure, use always or complete
-		failedAjaxRequest.complete(function(){
-			console.log('complete');
-		});
+	// 	// There's always more than one way to do it - fail and error are the same
+	// 	failedAjaxRequest.fail(function(jqXhr, error, msg){
+	// 		console.log('Also caught with .fail, not just .error');
+	// 	});
 
-	});
+
+	// 	// If you want to do something no matter if there's a success or failure, use always or complete
+	// 	failedAjaxRequest.complete(function(){
+	// 		console.log('complete');
+	// 	});
+
+	// });
 
 	// .success == .done, .error == .fail, .always == .complete
 
